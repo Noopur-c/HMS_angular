@@ -1,0 +1,24 @@
+<h2>Doctors List</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Specialization</th>
+    <th>Phone</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let doctor of doctors">
+    <td>{{ doctor.name }}</td>
+    <td>{{ doctor.specialization }}</td>
+    <td>{{ doctor.phone }}</td>
+    <td><button (click)="deleteDoctor(doctor.id)">Delete</button></td>
+  </tr>
+</table>
+
+<h3>Add Doctor</h3>
+<form (submit)="addDoctor()">
+  <input type="text" [(ngModel)]="newDoctor.name" placeholder="Name" name="name" required>
+  <input type="text" [(ngModel)]="newDoctor.specialization" placeholder="Specialization" name="specialization" required>
+  <input type="text" [(ngModel)]="newDoctor.phone" placeholder="Phone" name="phone" required>
+  <button type="submit">Add</button>
+</form>
+

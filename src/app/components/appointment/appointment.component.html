@@ -1,0 +1,27 @@
+<h2>Appointments List</h2>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Patient ID</th>
+    <th>Doctor ID</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let appointment of appointments">
+    <td>{{ appointment.date }}</td>
+    <td>{{ appointment.time }}</td>
+    <td>{{ appointment.patientId }}</td>
+    <td>{{ appointment.doctorId }}</td>
+    <td><button (click)="deleteAppointment(appointment.id)">Delete</button></td>
+  </tr>
+</table>
+
+<h3>Schedule Appointment</h3>
+<form (submit)="addAppointment()">
+  <input type="date" [(ngModel)]="newAppointment.date" name="date" required>
+  <input type="time" [(ngModel)]="newAppointment.time" name="time" required>
+  <input type="text" [(ngModel)]="newAppointment.patientId" placeholder="Patient ID" name="patientId" required>
+  <input type="text" [(ngModel)]="newAppointment.doctorId" placeholder="Doctor ID" name="doctorId" required>
+  <button type="submit">Schedule</button>
+</form>
+
